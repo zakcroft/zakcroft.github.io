@@ -1,21 +1,37 @@
-import { BlogPosts } from 'app/components/posts'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import Link from 'next/link'
 
-export default function Page() {
+export const revalidate = false; // No revalidation, purely static
+
+export default function Home() {
+  const postsDir = path.join(process.cwd(), 'posts')
+  const filenames = fs.readdirSync(postsDir)
+
+  const posts = filenames.map((filename) => {
+    const filePath = path.join(postsDir, filename)
+    const fileContents = fs.readFileSync(filePath, 'utf8')
+    const { data } = matter(fileContents)
+    return {
+      slug: filename.replace('.md', ''),
+      title: data.title,
+      date: data.date
+    }
+  })
+
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date))
+
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
-      </h1>
-      <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
-      </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
-    </section>
+    <div style={{ maxWidth: '600px', margin: '0 auto', fontFamily: 'sans-serif' }}>
+      <h1>My Blog</h1>
+      <ul>
+        {posts.map(({ slug, title, date }) => (
+          <li key={slug}>
+            <Link href={`/posts/${slug}`}>{title}</Link> - {date}
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

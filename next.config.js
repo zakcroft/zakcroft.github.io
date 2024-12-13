@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",  // <=== enables static exports
-  reactStrictMode: true,
-    distDir: 'build',
-    images: {
-      unoptimized: true
-    }
-};
+  output: 'export',
+  images: { unoptimized: true },
+  // No basePath or assetPrefix needed for a root-level deployment
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
