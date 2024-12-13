@@ -12,16 +12,16 @@
     "@types/react-dom": "18.2.19",
     "gray-matter": "^4.0.3",
     "next": "canary",
-    "postcss": "^8.4.35",
     "prettier": "^3.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^9.0.1",
     "remark-gfm": "^4.0.0",
-    "tailwindcss": "4.0.0-alpha.13",
     "typescript": "5.3.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20"
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.35",
+    "tailwindcss": "4.0.0-alpha.13"
   }
 }
