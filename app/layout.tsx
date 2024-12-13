@@ -2,8 +2,6 @@ import './global.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Navbar } from './components/nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 
 export const metadata: Metadata = {
@@ -34,8 +32,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <Analytics />
-          <SpeedInsights />
+          {/* Remove <Analytics /> and <SpeedInsights /> if not installed */}
         </main>
       </body>
     </html>
