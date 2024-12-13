@@ -1,10 +1,8 @@
 ---
 title: 'What is Web3? A Beginner’s Guide'
 publishedAt: '2024-01-09'
-summary: 'Discover why Vim, with its steep learning curve, remains a beloved tool among developers for editing code efficiently and effectively.'
+summary: 'What is web3.'
 ---
-
-# What is Web3? A Beginner’s Guide
 
 **Date:** January 1, 2024
 **Author:** Zak Croft
