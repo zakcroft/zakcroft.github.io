@@ -1,7 +1,7 @@
+// This is app/page.tsx
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import Link from 'next/link'
 
 export const revalidate = false; // No revalidation, purely static
 
@@ -15,12 +15,15 @@ export default function Home() {
     const { data } = matter(fileContents)
     return {
       slug: filename.replace('.md', ''),
-      title: data.title,
-      date: data.date
+      title: data.title as string,
+      date: data.date as string
     }
   })
 
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date))
+  posts.sort((a, b) => {
+    // Convert dates to numeric timestamps before comparing
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
+  })
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', fontFamily: 'sans-serif' }}>
@@ -28,7 +31,7 @@ export default function Home() {
       <ul>
         {posts.map(({ slug, title, date }) => (
           <li key={slug}>
-            <Link href={`/posts/${slug}`}>{title}</Link> - {date}
+            <a href={`/posts/${slug}`}>{title}</a> - {date}
           </li>
         ))}
       </ul>
