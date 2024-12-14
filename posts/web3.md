@@ -10,12 +10,9 @@ coverImage: '/images/web3/web3-futuristic.jpg'
 
 ![A vibrant futuristic representation of Web 3.0](/images/web3/web3-futuristic.jpg)
 
-                                Photo by DALL•E
 &nbsp;
-
+    
 ---
-
-## Introduction
 
 _Web3 was coined in 2014 by Gavin Wood, president and founder of the Web3 Foundation. However, to understand its context we need to go back to the beginning._
 
@@ -51,7 +48,6 @@ Because of the ease of creation there has been an influx of these token with dif
 &nbsp;
 ![A vibrant futuristic representation of Web 3.0](/images/web3/smart-contracts.jpg)
 
-                           Photo by DALL•E
 
 ### Smart contracts.
 
@@ -79,7 +75,6 @@ DAPPS can be DAOs where ownership of the DAPP is renounced to the actual contrac
 &nbsp;
 ![A vibrant futuristic representation of Web 3.0](/images/web3/daos.jpg)
 
-                           Photo by DALL•E
 
 ### DIDs (Decentralised Identifiers)
 
