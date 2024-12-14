@@ -51,9 +51,9 @@ export default function Home() {
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto md:mt-10 px-4 py-8">
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {posts.map(({ slug, title, date, image }) => (
           <Link href={`/posts/${slug}`} key={slug} className="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
             <div className="relative h-48">
