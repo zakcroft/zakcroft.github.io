@@ -10,6 +10,8 @@ coverImage: '/images/web3/web3-futuristic.jpg'
 
 ![A vibrant futuristic representation of Web 3.0](/images/web3/web3-futuristic.jpg)
 
+                                Photo by DALL•E
+&nbsp;
 
 ---
 
@@ -45,10 +47,11 @@ These token types have predefined interfaces so they can be universally read and
 
 Because of the ease of creation there has been an influx of these token with different use cases, some credible and some not so credible. Therefore, it is important to have well thought out tokenomics and governance rules and in this way, it will enhance the credibility and legitimacy of your businesses use case.
 
-
+                               
+&nbsp;
 ![A vibrant futuristic representation of Web 3.0](/images/web3/smart-contracts.jpg)
-                                Photo by DALL•E
 
+                           Photo by DALL•E
 
 ### Smart contracts.
 
@@ -73,8 +76,10 @@ DAOs are decentralized autonomous organizations that again are created with smar
 
 DAPPS can be DAOs where ownership of the DAPP is renounced to the actual contract address and then proposals that win votes can be automatically executed without hinderance. Many already exiting DAPPS are DAOS like Uniswap, MakerDao and Aave.
 
+&nbsp;
 ![A vibrant futuristic representation of Web 3.0](/images/web3/daos.jpg)
 
+                           Photo by DALL•E
 
 ### DIDs (Decentralised Identifiers)
 

@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { notFound } from 'next/navigation'
 
+
 export async function generateStaticParams() {
   const postsDir = path.join(process.cwd(), 'posts')
   const filenames = fs.readdirSync(postsDir)
