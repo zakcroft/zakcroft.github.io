@@ -7,6 +7,8 @@ summary: 'What is web3.'
 **Date:** January 1, 2024
 **Author:** Zak Croft
 
+![A vibrant futuristic representation of Web 3.0](/images/web3/web3-futuristic.jpg)
+
 
 ---
 
@@ -50,6 +52,8 @@ The most well-known use case of blockchains is **cryptocurrencies**, such as Bit
 
 Carefully designed token economies and governance rules increase the credibility of a project and encourage sustainable business models.
 
+![A vibrant futuristic representation of Web 3.0](/images/web3/smart-contracts.jpg)
+
 ### Smart Contracts
 
 **Smart contracts** introduced programmable logic into blockchains. While Bitcoin’s blockchain is essentially a ledger for transactions, Ethereum added the concept of addresses that can hold and execute code. When deployed, these contracts are:
@@ -84,6 +88,8 @@ Dapps are driving innovation in various sectors:
 - **No hierarchy**, only algorithmic enforcement of rules.
 
 Major projects like Uniswap, MakerDAO, and Aave are DAOs, demonstrating the viability of decentralised governance.
+
+![A vibrant futuristic representation of Web 3.0](/images/web3/daos.jpg)
 
 ### DIDs (Decentralised Identifiers)
 
