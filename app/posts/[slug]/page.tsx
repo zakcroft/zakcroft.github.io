@@ -30,16 +30,16 @@ export default function PostPage({ params }) {
   }
 
   return (
-    <article className="prose dark:prose-invert max-w-none">
-      <h1>{data.title}</h1>
-      {data.date && (
-        <p className="text-sm text-gray-500">
-          <em>{data.date}</em>
-        </p>
-      )}
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {content}
-      </ReactMarkdown>
-    </article>
+      <article className="prose dark:prose-invert max-w-none">
+        <h1 className="text-center mx-auto">{data.title}</h1>
+        {data.date && (
+            <p className="text-sm text-gray-500">
+              <em>{data.date}</em>
+            </p>
+        )}
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {content}
+        </ReactMarkdown>
+      </article>
   )
 }
