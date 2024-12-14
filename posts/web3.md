@@ -1,12 +1,12 @@
 ---
 title: 'What is Web3? A Beginner’s Guide'
-publishedAt: '2024-01-09'
+publishedAt: '2024-01-01'
 summary: 'What is web3.'
 coverImage: '/images/web3/web3-futuristic.jpg'
 ---
 
-**Date:** January 1, 2024
-**Author:** Zak Croft
+_January 1, 2024_
+
 
 ![A vibrant futuristic representation of Web 3.0](/images/web3/web3-futuristic.jpg)
 

@@ -30,8 +30,8 @@ export default function PostPage({ params }) {
   return (
     <article className="prose dark:prose-invert max-w-none">
       <h1 >{data.title}</h1>
-      <p><em>{data.date}</em></p>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <p><em className="text-center mx-auto">{data.date}</em></p>
+      <div dangerouslySetInnerHTML={{__html: content }} />
     </article>
   )
 }
