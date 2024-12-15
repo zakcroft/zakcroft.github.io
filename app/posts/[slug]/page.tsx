@@ -51,7 +51,7 @@ export async function generateMetadata({
           alt: metadataTitle,
         },
       ],
-    };
+    },
   };
 }
 
