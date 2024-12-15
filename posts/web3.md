@@ -1,7 +1,7 @@
 ---
 title: 'What is Web3? A Beginner’s Guide'
 publishedAt: '2024-01-01'
-summary: 'What is web3.'
+description: 'Web3 represents the next evolution of the internet, shifting from centralized, data-driven platforms of Web2 to a decentralized, permissionless framework powered by blockchain technology. Unlike its predecessor, Web3 gives users control over their data and interactions through secure, transparent, and immutable smart contracts. It fosters innovation through token economies, decentralized applications (DApps), and self-sovereign identities. With features like decentralized autonomous organizations (DAOs) and decentralized identifiers (DIDs), Web3 transforms governance, authentication, and data ownership. By eliminating intermediaries and enabling peer-to-peer interaction, Web3 disrupts traditional business models while enhancing security, transparency, and autonomy, heralding a more equitable and innovative digital ecosystem.'
 coverImage: '/images/web3/web3-futuristic.jpg'
 ---
 
