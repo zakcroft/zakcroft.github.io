@@ -12,7 +12,7 @@ function ArrowIcon() {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export default function Footer() {
@@ -22,5 +22,5 @@ export default function Footer() {
         © {new Date().getFullYear()}
       </p>
     </footer>
-  )
+  );
 }
