@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }; // Explicitly declare params type
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const postsDir = path.join(process.cwd(), "posts");
   const filePath = path.join(postsDir, `${params.slug}.md`);
@@ -38,6 +38,7 @@ export async function generateMetadata({
   return {
     title: metadataTitle,
     description: metadataDescription,
+    authors: [{ name: "Zak Croft" }],
     openGraph: {
       title: metadataTitle,
       description: metadataDescription,
