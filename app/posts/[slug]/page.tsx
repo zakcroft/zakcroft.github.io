@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const postsDir = path.join(process.cwd(), "posts");
@@ -16,8 +17,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}) {
+  params: { slug: string }; // Explicitly declare params type
+}): Promise<Metadata> {
   const postsDir = path.join(process.cwd(), "posts");
   const filePath = path.join(postsDir, `${params.slug}.md`);
 
@@ -40,19 +41,20 @@ export async function generateMetadata({
     openGraph: {
       title: metadataTitle,
       description: metadataDescription,
-      url: `https://zakcroft.github.io/posts/${params.slug}`, // Adjust with your site URL
+      url: `https://zakcroft.github.io/posts/${params.slug}`,
       type: "article",
       images: [
         {
-          url: data.coverImage || "https://zakcroft.github.io/images/daos.jpg", // Default fallback
+          url: data.coverImage || "https://zakcroft.github.io/images/daos.jpg",
           width: 1200,
           height: 630,
-          alt: data.title || "Zak Croft",
+          alt: metadataTitle,
         },
       ],
-    },
+    };
   };
 }
+
 
 export default function PostPage({ params }: { params: { slug: string } }) {
   const postsDir = path.join(process.cwd(), "posts");
