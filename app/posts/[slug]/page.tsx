@@ -23,7 +23,7 @@ export async function generateMetadata({
   const postsDir = path.join(process.cwd(), "posts");
   const filePath = path.join(postsDir, `${slug}.md`);
 
-  console.log('params', params);
+  // console.log('params', params);
 
   if (!fs.existsSync(filePath)) {
     return {
@@ -45,7 +45,7 @@ export async function generateMetadata({
     openGraph: {
       title: metadataTitle,
       description: metadataDescription,
-      url: `https://zakcroft.github.io/posts/${params.slug}`,
+      url: `https://zakcroft.github.io/posts/${slug}`,
       type: "article",
       images: [
         {
@@ -60,9 +60,10 @@ export async function generateMetadata({
 }
 
 
-export default function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({ params }: {  params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug
   const postsDir = path.join(process.cwd(), "posts");
-  const filePath = path.join(postsDir, `${params.slug}.md`);
+  const filePath = path.join(postsDir, `${slug}.md`);
 
   if (!fs.existsSync(filePath)) {
     notFound();
