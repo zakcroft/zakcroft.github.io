@@ -19,8 +19,11 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
+  const slug = (await params).slug
   const postsDir = path.join(process.cwd(), "posts");
-  const filePath = path.join(postsDir, `${params.slug}.md`);
+  const filePath = path.join(postsDir, `${slug}.md`);
+
+  console.log('params', params);
 
   if (!fs.existsSync(filePath)) {
     return {
