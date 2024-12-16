@@ -1,17 +1,14 @@
 ---
 title: 'What is Web3? A Beginner’s Guide'
-publishedAt: '2024-01-01'
+publishedAt: 'January 1, 2024'
 description: 'Web3 represents the next evolution of the internet, shifting from centralized, data-driven platforms of Web2 to a decentralized, permissionless framework powered by blockchain technology. Unlike its predecessor, Web3 gives users control over their data and interactions through secure, transparent, and immutable smart contracts. It fosters innovation through token economies, decentralized applications (DApps), and self-sovereign identities. With features like decentralized autonomous organizations (DAOs) and decentralized identifiers (DIDs), Web3 transforms governance, authentication, and data ownership. By eliminating intermediaries and enabling peer-to-peer interaction, Web3 disrupts traditional business models while enhancing security, transparency, and autonomy, heralding a more equitable and innovative digital ecosystem.'
 coverImage: '/images/web3/web3-futuristic.jpg'
 ---
 
-_January 1, 2024_
-
-
 ![A vibrant futuristic representation of Web 3.0](/images/web3/web3-futuristic.jpg)
 
 &nbsp;
-    
+
 ---
 
 _Web3 was coined in 2014 by Gavin Wood, president and founder of the Web3 Foundation. However, to understand its context we need to go back to the beginning._
@@ -20,23 +17,31 @@ _Web3 was coined in 2014 by Gavin Wood, president and founder of the Web3 Founda
 
 There was **Web1**. A simple information based static document sharing web, based on the HTML protocol that ran on top of the internet.
 
-Then after a lot of innovation and finding its way the current **Web2** was born. 
-This is a dynamic collaborative platform-based web where user-generated content, social-media, e-commerce and cloud services materialized. 
+Then after a lot of innovation and finding its way the current **Web2** was born.
+This is a dynamic collaborative platform-based web where user-generated content, social-media, e-commerce and cloud services materialized.
 These are centralized business platforms where user data is the commodity that is central to their business models.
 
-Now with the advent of blockchain technology we have seen the rise of **Web3**. 
+Now with the advent of blockchain technology we have seen the rise of **Web3**.
 
-Web3 is based on a permissionless decentralized network of nodes running cryptographically secured blockchains. 
-They can create token economies, decentralize application, codify governance rules and invert control of personal data back to the user. All this is done by using publicly viewable and immutable self-executing code, called smart contracts. 
+Web3 is based on a permissionless decentralized network of nodes running cryptographically secured blockchains.
+They can create token economies, decentralize application, codify governance rules and invert control of personal data back to the user. All this is done by using publicly viewable and immutable self-executing code, called smart contracts.
 These networks are decentralized and have the added benefit of having no single point of failure, no centralized business control and also offer a public and transparent audit trail.
 
 ### What Makes Web3 Different From a Blockchain?
 
-Web3 is built on blockchain technology and although the definition between the two is blurred we can define some distinctions. Blockchain’s have already found some compelling uses in many industries. Some industries have fragmented supply chains that result in a lack of provenance for products or their constituents and blockchains are used to log this in an immutable audit trail. Other industries are using blockchain’s immutability data structure as a cryptographically secure data layer for data security like drone airspace management and devices on the internet of things (IOT). Some of these industries use internal private blockchains and although some maybe public they are not disrupting the preexisting centralized, data centric, business models of the Web2.
+Web3 is built on blockchain technology and although the definition between the two is blurred we can define some distinctions.
+Blockchain’s have already found some compelling uses in many industries.
+Some industries have fragmented supply chains that result in a lack of provenance for products or their constituents and blockchains are used to log this in an immutable audit trail.
 
-Web3 innovation and disruption has predominantly encompassed the building of decentralized apps, self-enforced governance organizations, self-sovereign identity management and token economies. Some further divisions and terms are Smart Contracts, Cryptocurrencies, DEFI, DAOs, NFTs, DIDs and the Metaverse. These uses case are used in the public domain and where the innovation is occurring it is having a widespread effect on many sectors.
+Other industries are using blockchain’s immutability data structure as a cryptographically secure data layer for data security like drone airspace management and devices on the internet of things (IOT).
 
-# Cryptocurrency and tokens.
+Some of these industries use internal private blockchains and although some maybe public they are not disrupting the preexisting centralized, data centric, business models of the Web2.
+
+Web3 innovation and disruption has predominantly encompassed the building of decentralized apps, self-enforced governance organizations, self-sovereign identity management and token economies.
+Some further divisions and terms are Cryptocurrencies, Smart Contracts, DEFI, DAOs, NFTs, DIDs and the Metaverse.
+These uses case are used in the public domain and where the innovation is occurring it is having a widespread effect on many sectors.
+
+### Cryptocurrency and tokens.
 
 The most popular case in blockchains is cryptocurrencies. All blockchain platforms have their own native tokens, like Bitcoin and ETH on Ethereum. These tokens transact value natively on their blockchain and are used for transaction fees. However smart contract-based platforms can also define token types that users can create and manage themselves, so they don’t need to run their own blockchain.
 
@@ -44,37 +49,36 @@ These token types have predefined interfaces so they can be universally read and
 
 Because of the ease of creation there has been an influx of these token with different use cases, some credible and some not so credible. Therefore, it is important to have well thought out tokenomics and governance rules and in this way, it will enhance the credibility and legitimacy of your businesses use case.
 
-                               
 &nbsp;
 ![A vibrant futuristic representation of Web 3.0](/images/web3/smart-contracts.jpg)
 
-
 ### Smart contracts.
 
-Originally, we had Bitcoin which is a blockchain that is a ledger that records the transactions and balances of addresses. 
-Then came Ethereum which gave us the addition of addresses that could hold and execute code called contracts. 
-When deployed to the blockchain these contracts are decentralized, immutable and publicly viewable, therefore the rules they dictate are transparent and cannot be altered for anyone’s self-purpose. 
+Originally, we had Bitcoin which is a blockchain that is a ledger that records the transactions and balances of addresses.
+Then came Ethereum which gave us the addition of addresses that could hold and execute code called contracts.
+When deployed to the blockchain these contracts are decentralized, immutable and publicly viewable, therefore the rules they dictate are transparent and cannot be altered for anyone’s self-purpose.
 
-The code is law, as they say. This removes intermediary, legal and external enforcement mechanisms along with removing any counter party risk with regards to non-fulfillment of agreements. 
-Definition of terms are clear and cannot be changed for any reason and the agreement is always fulfilled. 
-Ultimately it removes any trust issues and fees paid to third parties or counterparties. 
+The code is law, as they say. This removes intermediary, legal and external enforcement mechanisms along with removing any counter party risk with regards to non-fulfillment of agreements.
+Definition of terms are clear and cannot be changed for any reason and the agreement is always fulfilled.
+Ultimately it removes any trust issues and fees paid to third parties or counterparties.
 
-With that definition we can see how and why smart contract can disrupt many existing business models. 
+With that definition we can see how and why smart contract can disrupt many existing business models.
 By removing the intermediary control, we open the door to new kinds of application that base themselves on a new types of decentralized business models.
 
 ### DAPPS (Decentralized Applications)
+
 Smart contracts have the ability to build full applications that run on the blockchain. These are called Dapps for decentralized apps. Because Dapps are written in smart contracts, they have all the attributes of smart contract laid out above. Dapps therefore can work without third party or centralized intervention. There is no central point of attack as they are decentralized and they have the implicit security of a blockchain. They are also permissionless and users do not need to part with personal data to use them.
 
 Dapps innovations are causing disruption across industries from decentralized finance (DEFI) like decentralized exchanges, lending and staking platforms, to gaming (play to earn, lotteries, VR), to social (content driven economies, fan tokens) and NFT markets (property, art, collectables, fractional ownership) to name but a few.
 
-### DIDs (Decentralised Identifiers)
+### DAOs (Decentralized Autonomous Organizations)
+
 DAOs are decentralized autonomous organizations that again are created with smart contracts. There are not meant to be applications but a set of governance rules with token-based voting algorithms. Participant vote to make decisions in the organizations future direction and the actions are self-executed by the rules encoded in the smart contract. In essence they are traditional companies with voting shareholders, but the smart contract code governs as opposed to management. Hierarchical structures are disrupted in favor of a collaborative governance structure.
 
 DAPPS can be DAOs where ownership of the DAPP is renounced to the actual contract address and then proposals that win votes can be automatically executed without hinderance. Many already exiting DAPPS are DAOS like Uniswap, MakerDao and Aave.
 
 &nbsp;
 ![A vibrant futuristic representation of Web 3.0](/images/web3/daos.jpg)
-
 
 ### DIDs (Decentralised Identifiers)
 
@@ -94,9 +98,9 @@ The explosion of innovation in Web3 has led to new applications and business mod
 
 Gaming has seen the adoption of Web3 technology utilizing cryptocurrencies in play-to-earn games.
 
-NFTs for in-game asset ownership and DAOs that create player driven ecosystems. 
+NFTs for in-game asset ownership and DAOs that create player driven ecosystems.
 
-If you add some VR and social media to this you become immersed in a socially connected 3D virtual world with the ability to trade and own assets in thriving economies. This is referred to as a Metaverse and some large Web2 players have already banked on this being the future and have started building their own Metaverses. 
+If you add some VR and social media to this you become immersed in a socially connected 3D virtual world with the ability to trade and own assets in thriving economies. This is referred to as a Metaverse and some large Web2 players have already banked on this being the future and have started building their own Metaverses.
 
 Further to this, the convergence with other technologies like AR, AI and IOT is securing Web3 as an integral and essential technologies in many existing and future business models.
 

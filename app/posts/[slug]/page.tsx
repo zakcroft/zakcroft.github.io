@@ -70,10 +70,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <article className="prose dark:prose-invert max-w-none">
-      <h1>{data.title}</h1>
-      {data.date && (
+      <h1 className="text-center mx-auto">{data.title}</h1>
+      {data.publishedAt && (
         <p className="text-sm text-gray-500 text-center">
-          <em className="text-center mx-auto">{data.date}</em>
+          <em className="text-center mx-auto">{data.publishedAt}</em>
         </p>
       )}
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
