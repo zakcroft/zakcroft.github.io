@@ -2,7 +2,7 @@
 title: 'Advanced Retrieval Augmented Generation'
 publishedAt: 'January 27, 2024'
 description: 'For domain specific tasks should we fine-tune a foundation model or build a new traditional model from scratch?'
-coverImage: '/images/foundation-models/scientist.jpg'
+coverImage: '/images/advanced-rag/rag.jpg'
 ---
 
 ![Scientist](/images/advanced-rag/rag.jpg)
