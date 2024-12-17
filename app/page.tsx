@@ -1,9 +1,9 @@
 // app/page.tsx
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import Image from "next/image";
-import Link from "next/link";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export const revalidate = false; // No revalidation, purely static
 
@@ -15,7 +15,7 @@ type Post = {
 };
 
 export default function Home() {
-  const postsDir = path.join(process.cwd(), "posts"); // Updated path
+  const postsDir = path.join(process.cwd(), 'posts'); // Updated path
   let filenames: string[] = [];
 
   try {
@@ -29,23 +29,23 @@ export default function Home() {
       </div>
     );
   }
-  console.log("filenames", filenames);
+  console.log('filenames', filenames);
   const posts: Post[] = filenames
-    .filter((filename) => filename.endsWith(".md"))
+    .filter((filename) => filename.endsWith('.md'))
     .map((filename) => {
       const filePath = path.join(postsDir, filename);
-      const fileContents = fs.readFileSync(filePath, "utf8");
+      const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContents);
-      console.log("data", data);
+      console.log('data', data);
       return {
-        slug: filename.replace(".md", ""),
+        slug: filename.replace('.md', ''),
         title: data.title as string,
         date: data.publishedAt as string,
         image: data.coverImage as string,
       };
     });
 
-  console.log("posts", posts); // This will log to the server console
+  console.log('posts', posts); // This will log to the server console
 
   // Sort posts by date descending
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -57,7 +57,7 @@ export default function Home() {
           <Link
             href={`/posts/${slug}`}
             key={slug}
-            className="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+            className="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             <div className="relative h-48">
               <Image
@@ -70,11 +70,9 @@ export default function Home() {
                        33vw"
               />
             </div>
-            <div className="p-4">
+            <div className="p-4 flex flex-col flex-1">
               <h2 className="text-xl font-semibold mb-2">{title}</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                {new Date(date).toLocaleDateString()}
-              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-auto">{new Date(date).toLocaleDateString()}</p>
             </div>
           </Link>
         ))}
