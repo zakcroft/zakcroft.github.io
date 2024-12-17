@@ -19,25 +19,37 @@ So lets look at some ways to tackle this, but first what are some of the main be
 
 ### Benefits
 
-Enhanced Accuracy: By including your relevant external sources you get more accurate and contextualised responses.
-Reduced Hallucinations: By adding new data that is not in the training data it reduces the likelihood of hallucinations.
-Up to date responses: You have control of the sources so keeping them up to data is easier with no need to train another model.
-Domain specific information: You can supply domain specific information and therefore get domain specific responses.
-Citations: You can cite the sources easier giving the responses more credibility and reliability.
+- **Enhanced Accuracy:** By including your relevant external sources you get more accurate and contextualised responses.
+
+- **Reduced Hallucinations:** By adding new data that is not in the training data it reduces the likelihood of hallucinations.
+
+- **Up to date responses:** You have control of the sources so keeping them up to data is easier with no need to train another model.
+
+- **Domain specific information:** You can supply domain specific information and therefore get domain specific responses.
+
+- **Citations:** You can cite the sources easier giving the responses more credibility and reliability.
+
 Lets also look at some issues we still find we have after implementing a basic RAG system?
 
 ### Issues
 
-Retrieved documents lack relevancy: This is pretty much the main issue. The documents retrieved have Low precision (the chunks received lack relevancy) or Low recall (the search has not returned the most relevant results).
-Unwanted LLM responses like hallucinations, irrelevancy, toxicity and bias.
-Structured and unstructured data are not chunked in a way that facilitates proper retrieval.
-User are making complex queries that have not been accounted for in the implementation.
-The tone and behaviour of the LLM outputs are not within required guidelines.
-Out of date documents are retrieved, due to lack of newly ingested information or lack of temporal metadata.
-Non domain specific embeddings: Your embeddings are not domain specific so there is a mismatch in the semantics.
-Costs are higher than initially accounted for as the context is unnecessarily larger than required, causing over use of tokens.
-Your data is not private. The best, as I write, is GPT4 and this means sending your data to a third party. Finding solutions to this is tricky without compromising on quality.
-So let’s look at some of the ways to optimise LLM performance and squeeze that extra 30% out of completions.
+- Retrieved documents lack relevancy: This is pretty much the main issue. The documents retrieved have Low precision (the chunks received lack relevancy) or Low recall (the search has not returned the most relevant results).
+
+- Unwanted LLM responses like hallucinations, irrelevancy, toxicity and bias.
+
+- Structured and unstructured data are not chunked in a way that facilitates proper retrieval.
+
+- User are making complex queries that have not been accounted for in the implementation.
+
+- The tone and behaviour of the LLM outputs are not within required guidelines.
+
+- Out of date documents are retrieved, due to lack of newly ingested information or lack of temporal metadata.
+
+- Non domain specific embeddings: Your embeddings are not domain specific so there is a mismatch in the semantics.
+
+- Costs are higher than initially accounted for as the context is unnecessarily larger than required, causing over use of tokens.
+  Your data is not private. The best, as I write, is GPT4 and this means sending your data to a third party. Finding solutions to this is tricky without compromising on quality.
+  So let’s look at some of the ways to optimise LLM performance and squeeze that extra 30% out of completions.
 
 ### The Process
 
@@ -53,28 +65,17 @@ Of course before we dive into this let’s look at prompting.
 
 So first off in our armouring we have the prompt. Let look at some that techniques that can help us steer the LLM into focusing on our required use case.
 
-**Few-Shot Prompting**  
-Few-Shot Prompting is a technique where the LLM is provided with a limited number of examples or shots to learn from. This approach is useful in situations where large datasets are not available and the model needs to adapt and respond accurately with minimal training data.
+**Few-Shot Prompting** is a technique where the LLM is provided with a limited number of examples or shots to learn from. This approach is useful in situations where large datasets are not available and the model needs to adapt and respond accurately with minimal training data.
 
-**Chain of Thought (CoT)**
+**Chain of Thought (CoT)** is an advanced technique in prompt engineering for LLMs that involves guiding the model through a step-by-step reasoning process to arrive at a conclusion. By doing this Chain of Thought improves the the models ability to tackle complex tasks that require logical reasoning, deep understanding or multi-step calculations. CoT has been particularly effective in improving performance on arithmetic, logic puzzles, and comprehension tasks.
 
-Chain of Thought (CoT) is an advanced technique in prompt engineering for LLMs that involves guiding the model through a step-by-step reasoning process to arrive at a conclusion. By doing this Chain of Thought improves the the models ability to tackle complex tasks that require logical reasoning, deep understanding or multi-step calculations. CoT has been particularly effective in improving performance on arithmetic, logic puzzles, and comprehension tasks.
+**Tree of Thoughts (ToT)** is a framework that extends the Chain of Thought approach by creating a tree-like structure of thoughts or reasoning steps. This method allows for more extensive exploration and branching in the thought process, enabling LLMs to consider multiple pathways and scenarios before arriving at it’s conclusion.
 
-**Tree of Thoughts (ToT)**
+**Multimodal CoT (Chain of Thought)** involves using multiple modes of thought or reasoning processes within a single prompt. This approach can combine different reasoning styles, such as logical, creative, or empirical thinking, to produce more comprehensive and well-rounded responses from LLMs.
 
-Tree of Thoughts (ToT) is a framework that extends the Chain of Thought approach by creating a tree-like structure of thoughts or reasoning steps. This method allows for more extensive exploration and branching in the thought process, enabling LLMs to consider multiple pathways and scenarios before arriving at it’s conclusion.
+**Prompt Chaining** involves linking multiple prompts in a sequential manner, where the output of one prompt serves as the input for the next. This method is particularly effective for complex tasks that can be broken down into smaller, more manageable sub-tasks, leading to more accurate and refined outputs.
 
-**Multimodal CoT (Chain of Thought)**
-
-Multimodal CoT (Chain of Thought) involves using multiple modes of thought or reasoning processes within a single prompt. This approach can combine different reasoning styles, such as logical, creative, or empirical thinking, to produce more comprehensive and well-rounded responses from LLMs.
-
-**Prompt Chaining**
-
-Prompt Chaining involves linking multiple prompts in a sequential manner, where the output of one prompt serves as the input for the next. This method is particularly effective for complex tasks that can be broken down into smaller, more manageable sub-tasks, leading to more accurate and refined outputs.
-
-**Self-Consistency**
-
-Self-Consistency in prompt engineering aims to ensure that responses from LLMs are not only accurate but also consistent across different iterations or contexts. This involves techniques to check and reinforce the consistency of the model’s responses, thereby enhancing reliability and trustworthiness.
+**Self-Consistency** in prompt engineering aims to ensure that responses from LLMs are not only accurate but also consistent across different iterations or contexts. This involves techniques to check and reinforce the consistency of the model’s responses, thereby enhancing reliability and trustworthiness.
 
 As you can see there are plenty of techniques and more emerging everyday. Check out the prompt guide for more ways to enhance your prompting here.
 
@@ -90,30 +91,37 @@ Some managed solutions like ElasticSearch, Pinecone, Weaviate, or Chroma will ha
 
 LlamaIndex is a data framework for LLM-based applications to ingest, structure, and access private or domain-specific data. It’s available in Python and Typescript.
 
-**Standard Chunking:**
-When chunking, the demarcation between chunks might be clear, like tweets or paragraphs in a document. However its best to aim for a balance between enough content and specificity. The type of retrieval approach also plays a key role in deciding on the chunking strategy, like summarisation or sentence window retrieval (covered later). For complex documents, consider strategies like hierarchical indexing (covered here).
-Semantic chunking: Is a chunking strategy where a semantic splitter adaptively picks the breakpoint in-between sentences to split on, using embedding similarity. So when there is a large change in the similarity then a split occurs. See more here.
-Hierarchical Indexing: In cases of large and complex datasets Hierarchical Indexing creates a two-level index: one for document summaries and another for detailed chunks within those documents. This method speeds up the retrieval process by first narrowing down relevant documents through their summaries.
-Metadata Indexing: Indexing metadata (like author, date, tags along side the text chunks enhances retrieval by allowing filtering and the creation of citations. Hybrid search which we see later is a great retrieval mechanism that relies on metadata.
-Table indexing. To properly index tables and complex structure you need to make sure you can find them and also that they are in complete chunks. One method is to Extract tables from a PDF using an unstructured data parser, caption them with a LLM for context and then index both the table and its caption in a node to improve recall of relevant information.
-Embedding Model Selection: The choice of the embedding model for vectorisation is crucial. Depending on the nature of the data and the specific use caseIt may be worth fine tuning your embedding. Check out some info on this here.
-Querying
+- Standard Chunking: When chunking, the demarcation between chunks might be clear, like tweets or paragraphs in a document. However its best to aim for a balance between enough content and specificity. The type of retrieval approach also plays a key role in deciding on the chunking strategy, like summarisation or sentence window retrieval (covered later). For complex documents, consider strategies like hierarchical indexing (covered here).
+
+- Semantic chunking: Is a chunking strategy where a semantic splitter adaptively picks the breakpoint in-between sentences to split on, using embedding similarity. So when there is a large change in the similarity then a split occurs. See more here.
+
+- Hierarchical Indexing: In cases of large and complex datasets Hierarchical Indexing creates a two-level index: one for document summaries and another for detailed chunks within those documents. This method speeds up the retrieval process by first narrowing down relevant documents through their summaries.
+
+- Metadata Indexing: Indexing metadata (like author, date, tags along side the text chunks enhances retrieval by allowing filtering and the creation of citations. Hybrid search which we see later is a great retrieval mechanism that relies on metadata.
+
+- Table indexing. To properly index tables and complex structure you need to make sure you can find them and also that they are in complete chunks. One method is to Extract tables from a PDF using an unstructured data parser, caption them with a LLM for context and then index both the table and its caption in a node to improve recall of relevant information.
+
+- Embedding Model Selection: The choice of the embedding model for vectorisation is crucial. Depending on the nature of the data and the specific use caseIt may be worth fine tuning your embedding. Check out some info on this here.
+
+### Querying
+
 There are many ways to enhance this part of the process. Methods like and query construction, query expansion and query transformations can each can play a part in enhancing the search process.
 
 **Query Construction:**
 Transforms NLP queries to data source formats. It changes questions into vector formats for unstructured data or reformats queries for structured data sources
 
-**Vector Format Conversion:**
-Changes questions into vectors for querying unstructured data placed into a vector store.
-Metadata Filtering: You can use a Hybrid Search Approach that utilises a combination of MetadataFilter and vector search classes for comprehensive search results.
+- Vector Format Conversion: Changes questions into vectors for querying unstructured data placed into a vector store.
 
-Example: A query such as “movies about aliens in the year 1980” is split into:
+- Metadata Filtering: You can use a Hybrid Search Approach that utilises a combination of MetadataFilter and vector search classes for comprehensive search results.
 
-    A vector query for “aliens”.
-    A structured SQL query for metadata, specifically “year == 1980”.
-    Text-to-SQL Technology: Transforms natural language into SQL queries.
-    Text-to-KnowledgeGraph: Transforms natural language into Knowledge Graph queries.
-    And plenty more here.
+  Example: A query such as “movies about aliens in the year 1980” is split into:
+
+      A vector query for “aliens”.
+      A structured SQL query for metadata, specifically “year == 1980”.
+
+- Text-to-SQL Technology: Transforms natural language into SQL queries.
+
+- Text-to-KnowledgeGraph: Transforms natural language into Knowledge Graph queries.
 
 **Query Expansion:**
 
