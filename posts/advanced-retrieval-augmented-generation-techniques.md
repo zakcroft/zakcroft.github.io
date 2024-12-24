@@ -125,10 +125,12 @@ Transforms NLP queries to data source formats. It changes questions into vector 
 
 **Query Expansion:**
 
-**Hypothetical Questions and HyDE:** Enhances the search by first generating hypothetical answers to the query with a LLM. Then by adding these alongside the query in the semantic search on the vector store it results in a better match. This method is particularly useful for complex queries where a semantic match on just the query may not be enough. HyDE adds an additional layer of semantic understanding, making it better at retrieving chunks that aligns more closely with the user’s intent.
-Sub-Question Query Engines: Sub-Question Query Engines adopt a divide-and-conquer approach. They decompose complex queries into a series of sub-questions, each targeting specific aspects of the original inquiry. These are then fed to appropriate separate index(s) to give a more accurate result set formed from multiple data sources.
-Query Routing: Routing the same query to either one or many search data sources and then aggregating the response can also help with relevant responses. Routers use tools and select from them depending on the query, the tool is then executed to call the data sources with the correctly formatted query.
-LlamaIndex has some extensive option here.
+- Hypothetical Questions and HyDE: Enhances the search by first generating hypothetical answers to the query with a LLM. Then by adding these alongside the query in the semantic search on the vector store it results in a better match. This method is particularly useful for complex queries where a semantic match on just the query may not be enough. HyDE adds an additional layer of semantic understanding, making it better at retrieving chunks that aligns more closely with the user’s intent.
+
+- Sub-Question Query Engines: Sub-Question Query Engines adopt a divide-and-conquer approach. They decompose complex queries into a series of sub-questions, each targeting specific aspects of the original inquiry. These are then fed to appropriate separate index(s) to give a more accurate result set formed from multiple data sources.
+
+- Query Routing: Routing the same query to either one or many search data sources and then aggregating the response can also help with relevant responses. Routers use tools and select from them depending on the query, the tool is then executed to call the data sources with the correctly formatted query.
+
 
 ![Scientist](/images/advanced-rag/querying.jpeg)
 
@@ -137,17 +139,28 @@ LlamaIndex has some extensive option here.
 ### Retrieval
 
 **Top-k Retrieval:**
+
 Playing with your top-k and using a similarity cutoff on a post processor will get you so far. But let’s look at some more advanced ways to retrieve those right documents.
 
-**Context Enrichment:**
+- Context Enrichment:
+
 This involves retrieving smaller chunks for better search quality and then adding surrounding context for the LLM to reason upon. This is also called Small-to-Big Retrieval. Here are two methods:
-Sentence Window Retrieval: Embed each sentence separately and then after fetching the most relevant sentence extend the context window by adding sentences before and after the retrieved sentence.
-Auto-merging Retriever (Parent Document Retriever): Split documents into smaller child chunks that refer to larger parent chunks. During retrieval, if multiple top retrieved chunks are linked to the same parent node, replace them with this parent chunk.
-Metadata Filtering: Filters information based on specific criteria like year.
-Recursive Retrieval: Recursive retrieval method is particularly effective for documents with a hierarchical structure, allowing them to form relationships and connections between the nodes. This is great in cases like a PDF, which may contain “sub-data” such as tables and diagrams and references to other documents. This technique can precisely navigate through the graph of connected nodes to locate information. The LlamaIndex documentation is here.
-BM25: A popular ranking function used by search engines to estimate the relevance of documents to a given search query. It’s based on probabilistic models and improves upon earlier models like TF-IDF (Term Frequency-Inverse Document Frequency). BM25 considers factors like term frequency and document length to provide a more nuanced approach to relevance scoring. It handles the issue of term saturation (where the importance of a term doesn’t always increase linearly with frequency) and length normalization (adjusting scores based on document length to prevent bias toward longer documents). BM25’s effectiveness in various search tasks has made it a standard in information retrieval.
-Fusion Retrieval or Hybrid Search: Combine keyword-based search (like tf-idf or BM25) with modern semantic or vector search. This approach takes into account both semantic similarity and keyword matching between the query and stored documents. The Reciprocal Rank Fusion algorithm can be used for reranking the retrieved results for the final output. Since both of these retrievers calculate a score, we can use the reciprocal rerank algorithm to re-sort our nodes without using additional models or excessive computation. Some info here on this.
-This is just some of the retrieval methods and you can find some more here.
+
+-  **Window Retrieval:** Embed each sentence separately and then after fetching the most relevant sentence extend the context window by adding sentences before and after the retrieved sentence.
+
+-  **Auto-merging Retriever (Parent Document Retriever):**  Split documents into smaller child chunks that refer to larger parent chunks. During retrieval, if multiple top retrieved chunks are linked to the same parent node, replace them with this parent chunk.
+
+Others include.
+
+- **Metadata Filtering:** Filters information based on specific criteria like year.
+
+- **Recursive Retrieval:** Recursive retrieval method is particularly effective for documents with a hierarchical structure, allowing them to form relationships and connections between the nodes. This is great in cases like a PDF, which may contain “sub-data” such as tables and diagrams and references to other documents. This technique can precisely navigate through the graph of connected nodes to locate information. The LlamaIndex documentation is here.
+
+- **BM25:** A popular ranking function used by search engines to estimate the relevance of documents to a given search query. It’s based on probabilistic models and improves upon earlier models like TF-IDF (Term Frequency-Inverse Document Frequency). BM25 considers factors like term frequency and document length to provide a more nuanced approach to relevance scoring. It handles the issue of term saturation (where the importance of a term doesn’t always increase linearly with frequency) and length normalization (adjusting scores based on document length to prevent bias toward longer documents). BM25’s effectiveness in various search tasks has made it a standard in information retrieval.
+
+- **Fusion Retrieval or Hybrid Search:** Combine keyword-based search (like tf-idf or BM25) with modern semantic or vector search. This approach takes into account both semantic similarity and keyword matching between the query and stored documents. The Reciprocal Rank Fusion algorithm can be used for reranking the retrieved results for the final output. Since both of these retrievers calculate a score, we can use the reciprocal rerank algorithm to re-sort our nodes without using additional models or excessive computation. Some info here on this.
+
+&nbsp;
 
 ![Scientist](/images/advanced-rag/post-processing.jpg)
 
@@ -158,13 +171,18 @@ This is just some of the retrieval methods and you can find some more here.
 A node postprocessor takes in a set of retrieved nodes and applies transformations, filtering or re-ranking logic to them.
 
 **SimilarityPostprocessor:**
+
 This module is designed to remove nodes that fall below a set similarity score threshold. It ensures that only nodes with a high degree of relevance or similarity are added to the context.
-CohereRerank: Reranking is a very popular way to increase the relevancy of you data set before passing it the the LLM. This module employs the “Cohere ReRank” functionality to reorder nodes, returning the top N nodes based on the re-ranking.
-KeywordNodePostprocessor: This postprocessor ensures the inclusion or exclusion of certain keywords. It filters nodes based on whether they contain specific required keywords and/or can exclude them.
-MetadataReplacementPostProcessor: This module replaces the node content with a field from the node’s metadata. It’s particularly useful when combined with the SentenceWindowNodeParser that is part of the big to small strategy outlined above.
-LongContextReorder: Recognising that models struggle with significant details in lengthy contexts, this module reorders retrieved nodes. It’s especially helpful in scenarios requiring a large top-k retrieval and will optimise the order of nodes.
-SentenceEmbeddingOptimizer: This postprocessor optimises token usage by removing sentences irrelevant to the query. It can work based on a percentile cutoff for top relevant sentences or a threshold cutoff for similarity.
-LlamaIndex has a great set of post processors you can find here.
+- **CohereRerank:** Reranking is a very popular way to increase the relevancy of you data set before passing it the the LLM. This module employs the “Cohere ReRank” functionality to reorder nodes, returning the top N nodes based on the re-ranking.
+
+- **KeywordNodePostprocessor:** This postprocessor ensures the inclusion or exclusion of certain keywords. It filters nodes based on whether they contain specific required keywords and/or can exclude them.
+
+- **MetadataReplacementPostProcessor:** This module replaces the node content with a field from the node’s metadata. It’s particularly useful when combined with the SentenceWindowNodeParser that is part of the big to small strategy outlined above.
+
+- **LongContextReorder:** Recognising that models struggle with significant details in lengthy contexts, this module reorders retrieved nodes. It’s especially helpful in scenarios requiring a large top-k retrieval and will optimise the order of nodes.
+
+- **SentenceEmbeddingOptimizer:** This postprocessor optimises token usage by removing sentences irrelevant to the query. It can work based on a percentile cutoff for top relevant sentences or a threshold cutoff for similarity.
+
 
 ### Response Synthesiser
 
@@ -173,13 +191,18 @@ A Response Synthesiser is what generates a response from an LLM, using a user qu
 #### Modes:
 
 **Refine Mode:**
+
 Processes each retrieved text chunk sequentially, making separate LLM calls for each node. This is the default mode for a list index. The list of nodes is traversed sequentially and at each step, the query, the response so far and the context of the current node are embedded in a prompt template that prompts a LLM to refine the response to the query according to the new information in the current node. This mode is ideal for detailed answers.
-Compact Mode (Default): Similar to refine mode but compacts the chunks before processing, resulting in fewer LLM calls. This makes it a cheaper option. The response synthesiser adds as many nodes as possible into the context before hitting the LLM’t token limit. If there are too many nodes for one pass it will do many steps until complete.
-Simple Summarise Mode: Truncates text chunks to fit into a single LLM prompt, offering a quick summarisation solution. However you may lose some details due to truncation.
-Tree Summarise Mode: This uses a summary index and concatenates the chunks, then recursively processes the answers as chunks. This continues until one final answer remains. This mode is suitable for summarisation purposes, especially when dealing with multiple chunks.
-Accumulate Mode: Applies the query to each text chunk separately, accumulating the responses into an array and returns a concatenated string of all responses. This mode is beneficial when the same query needs to be run against multiple text chunks independently.
-Compact Accumulate Mode: Combines the features of accumulate and compact modes. It compacts each LLM prompt similarly to the compact mode and runs the same query against each text chunk.
-LlamaIndex has a great set of Response Synthesiser you can find here.
+
+- **Compact Mode (Default):** Similar to refine mode but compacts the chunks before processing, resulting in fewer LLM calls. This makes it a cheaper option. The response synthesiser adds as many nodes as possible into the context before hitting the LLM’t token limit. If there are too many nodes for one pass it will do many steps until complete.
+
+- **Simple Summarise Mode:** Truncates text chunks to fit into a single LLM prompt, offering a quick summarisation solution. However you may lose some details due to truncation.
+
+- **Tree Summarise Mode:** This uses a summary index and concatenates the chunks, then recursively processes the answers as chunks. This continues until one final answer remains. This mode is suitable for summarisation purposes, especially when dealing with multiple chunks.
+
+- **Accumulate Mode:** Applies the query to each text chunk separately, accumulating the responses into an array and returns a concatenated string of all responses. This mode is beneficial when the same query needs to be run against multiple text chunks independently.
+
+- **Compact Accumulate Mode:** Combines the features of accumulate and compact modes. It compacts each LLM prompt similarly to the compact mode and runs the same query against each text chunk.
 
 ### Evaluate
 
@@ -223,7 +246,3 @@ LlamaIndex offers key modules to measure the quality of generated results and yo
 
 Fine tuning and Agents.
 It would be wrong to leave out a mention on Fine-tuning and Agents. However they warrant their own articles so these will be covered in some next instalments.
-
-•
-
-Retrieval-Augmented Generation
