@@ -53,6 +53,7 @@ Lets also look at some issues we still find we have after implementing a basic R
 
 ### The Process
 
+
 Here is the RAG pipeline process we cover.
 
 ![Scientist](/images/advanced-rag/process.png)
