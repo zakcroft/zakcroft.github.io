@@ -213,7 +213,7 @@ Evaluation and benchmarking are crucial concepts in LLM development. To improve 
 Focuses on assessing each part of the RAG system separately, particularly retrieval accuracy and relevance.
 
 **End-to-End Evaluation:**
-End-to-End Evaluation: Examines the entire RAG system, including the final response’s correctness and relevance. Best to start with to see how your whole pipeline is fairing.
+End-to-End Evaluation examines the entire RAG system, including the final response’s correctness and relevance. Best to start with to see how your whole pipeline is fairing.
 
 **Create Ground Truth Datasets:**
 This involves generating question-context pairs, either manually or synthetically. These will me ground truths that are specifically designed for testing and assessing the performance of the RAG system.
