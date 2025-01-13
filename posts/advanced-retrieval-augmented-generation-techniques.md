@@ -39,7 +39,7 @@ Lets also look at some issues we still find we have after implementing a basic R
 
 - Structured and unstructured data are not chunked in a way that facilitates proper retrieval.
 
-- User are making complex queries that have not been accounted for in the implementation.
+- Users are making complex queries that have not been accounted for in the implementation.
 
 - The tone and behaviour of the LLM outputs are not within required guidelines.
 
@@ -106,7 +106,7 @@ LlamaIndex is a data framework for LLM-based applications to ingest, structure, 
 
 ### Querying
 
-There are many ways to enhance this part of the process. Methods like and query construction, query expansion and query transformations can each can play a part in enhancing the search process.
+There are many ways to enhance this part of the process. Methods like query construction, query expansion and query transformations can each can play a part in enhancing the search process.
 
 **Query Construction:**
 Transforms NLP queries to data source formats. It changes questions into vector formats for unstructured data or reformats queries for structured data sources
@@ -187,7 +187,7 @@ This module is designed to remove nodes that fall below a set similarity score t
 
 ### Response Synthesiser
 
-A Response Synthesiser is what generates a response from an LLM, using a user query and a given set of text chunks. The method for doing this can take many forms, from iterating over text chunks to something more complex like building a tree. The main idea here is to simplify the process of generating a response using an LLM across your data. In LamaIndex you can set modes.
+A Response Synthesiser is what generates a response from an LLM, using a user query and a given set of text chunks. The method for doing this can take many forms, from iterating over text chunks to something more complex like building a tree. The main idea here is to simplify the process of generating a response using an LLM across your data. In LlamaIndex you can set modes.
 
 #### Modes:
 
@@ -207,10 +207,12 @@ Processes each retrieved text chunk sequentially, making separate LLM calls for 
 
 ### Evaluate
 
-Evaluation and benchmarking arße crucial concepts in LLM development. To improve the performance of an LLM RAG app you must have a way to measure it. There are many techniques emerging but here are the main points to focus on.
+Evaluation and benchmarking are crucial concepts in LLM development. To improve the performance of an LLM RAG app you must have a way to measure it. There are many techniques emerging but here are the main points to focus on.
 
 **Component-Wise Evaluation:**
 Focuses on assessing each part of the RAG system separately, particularly retrieval accuracy and relevance.
+
+**End-to-End Evaluation:**
 End-to-End Evaluation: Examines the entire RAG system, including the final response’s correctness and relevance. Best to start with to see how your whole pipeline is fairing.
 
 **Create Ground Truth Datasets:**
@@ -235,7 +237,7 @@ Determines the relevancy of retrieved context in relation to the query.
 Assesses the generated answer’s relevance in relation to the query.
 
 **Guideline Adherence:**
-Evaluates adherence to specific guidelines, like corporate identify, tone and behaviour.
+Evaluates adherence to specific guidelines, like corporate identity, tone and behaviour.
 
 **RAG Triad Framework (TruLens):**
 This is one of many frameworks appearing. Trulens focuses on context relevance, groundedness, answer relevance and emphasises ‘honest, harmless, helpful’ criteria for evaluating LLM applications. Its worth a look here.
