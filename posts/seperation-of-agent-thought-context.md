@@ -1,3 +1,11 @@
+---
+title: 'Separation of Agent Thought Context'
+publishedAt: 'March 15, 2026'
+description: 'A practical approach to multi-agent AI systems that focuses on isolating thought contexts between agents—using dedicated specification, coding, and testing agents to create cleaner reasoning, clearer responsibilities, and more reliable software development workflows.'
+coverImage: '/images/seperation-of-agent-thought-context/multi-agent.png'
+---
+
+
 # Separation of Thought: Building Software with Context-Isolated AI Agents
 
 Software development has always been a process of managing complexity. As systems grow, the challenge isn’t simply writing code—it’s keeping the thinking around that code organized. One emerging approach to managing this complexity in AI-assisted development is **separating thought contexts across multiple agents**.
